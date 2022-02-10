@@ -11,7 +11,7 @@ const education = ({education}) => {
 export default education;
 
 export async function getStaticProps(){
-  const response = await fetch('http://localhost:3000/api/education');
+  const response = await fetch('paws-next-51h11lwmg-angelinatr15.vercel.app/api/education');
   const education = await response.json()
   return{
     props: {

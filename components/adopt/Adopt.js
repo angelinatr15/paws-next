@@ -1,5 +1,4 @@
 import AdoptC from './AdoptC';
-import ServicesResourcesForm from '../services_resources/ServicesResourcesForm'
 
 const Adopt = ({animals}) => {
   return <div>

@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const id = context.params.id
-  const url = 'http://localhost:3000/api/education/' + id
+  const url = 'paws-next-51h11lwmg-angelinatr15.vercel.app/api/education/' + id
   const response = await fetch(url)
   const education = await response.json()
 
