@@ -18,7 +18,7 @@ export default EducationDetails
 export async function getStaticPaths() {
   //api call to get all ids
   const res = await fetch(
-    'https://www.paws-next-51h11lwmg-angelinatr15.vercel.app/api/education',
+    'www.paws-next-51h11lwmg-angelinatr15.vercel.app/api/education',
   )
   const educations = await res.json()
 
