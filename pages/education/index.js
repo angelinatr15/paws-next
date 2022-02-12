@@ -1,5 +1,6 @@
 import React from 'react';
 import EducationC from '../../components/education/EducationC';
+import pool from '../api/db/connection'
 
 const education = ({education}) => {
 
@@ -11,11 +12,10 @@ const education = ({education}) => {
 export default education;
 
 export async function getStaticProps(){
-  const response = await fetch('/api/education');
-  const education = await response.json()
+  const education = await pool.query('SELECT * FROM education', [])
   return{
     props: {
-      education
+      education: education.rows
     }
     
   }
