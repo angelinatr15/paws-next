@@ -24,7 +24,7 @@ const AdoptForm = ({ pet, setIsFormOpen }) => {
     try {
       console.log('This is pet ID' + pet.id)
       const response = await fetch(
-        'paws-next-51h11lwmg-angelinatr15.vercel.app/api/adopted',
+        '/api/adopted',
         {
           method: 'POST',
           headers: {

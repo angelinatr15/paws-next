@@ -17,7 +17,7 @@ export default adopt
 
 export async function getStaticProps() {
   const response = await fetch(
-    'api/animals',
+    '/api/animals',
   )
   const animals = await response.json()
   return {

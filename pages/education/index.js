@@ -11,7 +11,7 @@ const education = ({education}) => {
 export default education;
 
 export async function getStaticProps(){
-  const response = await fetch('api/education');
+  const response = await fetch('/api/education');
   const education = await response.json()
   return{
     props: {

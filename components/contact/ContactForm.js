@@ -16,7 +16,7 @@ const ContactForm = () => {
         e.preventDefault();
         const contact = {first_name:firstNameRef.current.value, last_name:lastNameRef.current.value, phone_number:phoneNumberRef.current.value, message:messageRef.current.value, email:emailRef.current.value}
         try{
-            const response = await fetch('http://localhost:5000/contact',{
+            const response = await fetch('/api/contact',{
 
                 method:'POST',
                 headers:{
