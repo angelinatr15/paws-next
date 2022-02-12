@@ -1,4 +1,5 @@
 import Adopt from '../components/adopt/Adopt'
+import pool from './api/db/connection';
 
 const adopt = ({ animals }) => {
   return (
@@ -15,14 +16,19 @@ const adopt = ({ animals }) => {
 
 export default adopt
 
+//server function BACKEND
 export async function getStaticProps() {
-  const response = await fetch(
-    '/api/animals',
-  )
-  const animals = await response.json()
+  let animals = {};
+  try {
+    animals = await pool.query('SELECT * FROM animals');
+    console.log(animals.rows)
+  } catch (error) {
+    console.log(error.message)
+  }
+
   return {
     props: {
-      animals,
+      animals: animals.rows,
     },
   }
 }
