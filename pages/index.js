@@ -1,11 +1,34 @@
-import NavBar from "../components/layout/NavBar";
+import Adopt from '../components/adopt/Adopt'
+import pool from './api/db/connection';
 
-const index = () => {
-  return <div>
+const adopt = ({ animals }) => {
+  return (
+    <div>
+      <h5 className="mt-10 p-4">
+        “Until one has loved an animal, a part of one soul remains unawakened.”
+        -Anatole France. 21. “Animals are such agreeable friends―they ask no
+        questions, they pass no criticisms.”
+      </h5>
+      <Adopt animals={animals} />
+    </div>
+  )
+}
 
-    <h5 className="bg-red-300">Testing index</h5>
+export default adopt
 
-  </div>
-};
+//server function BACKEND
+export async function getStaticProps() {
+  let animals = {};
+  try {
+    animals = await pool.query('SELECT * FROM animals');
+    console.log(animals.rows)
+  } catch (error) {
+    console.log(error.message)
+  }
 
-export default index;
+  return {
+    props: {
+      animals: animals.rows,
+    },
+  }
+}
